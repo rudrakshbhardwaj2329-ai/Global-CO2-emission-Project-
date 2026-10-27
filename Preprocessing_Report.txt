@@ -1,0 +1,40 @@
+EcoPredict AI — Data Preprocessing Report
+========================================
+
+Input file: Fuel_Consumption.csv
+Output file: Final_Data_Preprocessed.csv
+
+Preprocessing rule:
+- Kept the first occurrence of each exact row.
+- Removed only rows where BOTH Engine size (L) and CO2 emissions (g/km)
+  exactly matched a previous row.
+- Did not change or invent any feature or target values.
+- Did not remove rows just because engine size matched if CO2 emissions differed.
+- The original CSV remains unchanged.
+
+Before preprocessing:
+- Rows: 701
+- Columns: 2
+- Missing values by column:
+Engine size (L)         0
+CO2 emissions (g/km)    0
+- Exact duplicate rows: 236
+
+After preprocessing:
+- Rows: 465
+- Columns: 2
+- Missing values by column:
+Engine size (L)         0
+CO2 emissions (g/km)    0
+- Exact duplicate rows: 0
+
+Rows removed: 236
+Rows retained: 465
+
+Important limitation:
+The dataset contains only engine size and CO2 emissions, not vehicle make/model
+or vehicle IDs. Therefore, exact repeated pairs cannot be proven to be erroneous
+records. This cleaned file should be described as an "exact-duplicate-removed
+experimental dataset", not automatically as a universally better dataset.
+Compare model results before and after preprocessing and report honestly whether
+metrics improve or worsen.
